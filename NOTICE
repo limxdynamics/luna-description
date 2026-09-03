@@ -1,0 +1,6 @@
+luna-description
+Copyright 2025 LimX Dynamics Technology Co., Ltd.
+
+This repository provides robot description packages (URDF, MuJoCo MJCF,
+and NVIDIA USD models) and mesh geometry for the LimX Dynamics Luna
+humanoid robot (HU_L04), licensed under the Apache License, Version 2.0.
