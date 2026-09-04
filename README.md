@@ -2,6 +2,10 @@
 
 # LimX Luna Robot Description
 
+<p align="center">
+  <img src="docs/luna_robot.jpg" alt="LimX Luna humanoid robot" width="360" />
+</p>
+
 URDF, MuJoCo MJCF & USD models for the LimX Dynamics Luna humanoid robot (HU_L04). Provides simulation-ready robot descriptions for ROS, MuJoCo, and NVIDIA Isaac Sim / Isaac Lab.
 
 ## Available models

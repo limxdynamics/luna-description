@@ -2,6 +2,10 @@
 
 # LimX Luna 机器人描述
 
+<p align="center">
+  <img src="docs/luna_robot.jpg" alt="LimX Luna 人形机器人" width="360" />
+</p>
+
 LimX Dynamics Luna 人形机器人（HU_L04）的 URDF、MuJoCo MJCF 和 USD 模型文件。提供仿真就绪的机器人描述，支持 ROS、MuJoCo 和 NVIDIA Isaac Sim / Isaac Lab。
 
 ## 可用型号
