@@ -24,7 +24,7 @@ URDF, MuJoCo MJCF & USD models for the LimX Dynamics Luna humanoid robot (HU_L04
 | Directory        | Contents                                                                                      |
 | ---------------- | --------------------------------------------------------------------------------------------- |
 | `urdf/`          | URDF + SRDF (joint specs: rotor inertia, gear ratio)                                          |
-| `xml/`           | MuJoCo MJCF XML (includes parallel-linkage constraints, actuators and sensors)                |
+| `xml/`           | MuJoCo MJCF XML: `HU_L04_01.xml` (full dynamics: parallel-linkage constraints, actuators, sensors) and `HU_L04_01_vis.xml` (kinematics only, used for motion retargeting) |
 | `usd/`           | NVIDIA USD files, serial approximation consistent with the URDF, + `configuration/` subdirectory |
 | `usd_parallel/`  | NVIDIA USD files with the parallel linkages modeled as closed loops, + `configuration/` subdirectory |
 | `meshes/`        | STL mesh files                                                                                |
@@ -48,6 +48,8 @@ catkin_make  # or colcon build
 ```bash
 python -m mujoco.viewer --mjcf=HU_L04_description/xml/HU_L04_01.xml
 ```
+
+`HU_L04_01_vis.xml` is a kinematics-only variant (no parallel linkages, actuators or sensors) intended for motion retargeting.
 
 ### Isaac Sim / Isaac Lab
 

@@ -24,7 +24,7 @@ LimX Dynamics Luna 人形机器人（HU_L04）的 URDF、MuJoCo MJCF 和 USD 模
 | 目录 | 内容 |
 |------|------|
 | `urdf/` | URDF + SRDF（关节参数：转子惯量、减速比） |
-| `xml/` | MuJoCo MJCF XML（含并联连杆约束、执行器和传感器） |
+| `xml/` | MuJoCo MJCF XML：`HU_L04_01.xml` 为完整动力学模型（含并联连杆约束、执行器、传感器），`HU_L04_01_vis.xml` 为纯运动学模型（用于动作重定向） |
 | `usd/` | NVIDIA USD 文件，与 URDF 一致的串联近似，+ `configuration/` 子目录 |
 | `usd_parallel/` | NVIDIA USD 文件，并联连杆按闭环建模，+ `configuration/` 子目录 |
 | `meshes/` | STL 网格文件 |
@@ -48,6 +48,8 @@ catkin_make  # 或 colcon build
 ```bash
 python -m mujoco.viewer --mjcf=HU_L04_description/xml/HU_L04_01.xml
 ```
+
+`HU_L04_01_vis.xml` 是纯运动学版本（不含并联连杆、执行器和传感器），供动作重定向使用。
 
 ### Isaac Sim / Isaac Lab
 
