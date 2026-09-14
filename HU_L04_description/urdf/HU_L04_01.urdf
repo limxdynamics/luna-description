@@ -30,14 +30,14 @@
     <inertial>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
       <mass value="0.01"/>
-      <inertia ixx="1e-06" ixy="0.0" ixz="0.0" iyy="1e-06" iyz="0.0" izz="1e-06"/>
+      <inertia ixx="1e-08" ixy="0.0" ixz="0.0" iyy="1e-08" iyz="0.0" izz="1e-08"/>
     </inertial>
     <visual>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
       <geometry>
         <box size="0.01 0.01 0.01"/>
       </geometry>
-      <material name="">
+      <material name="marker_red">
         <color rgba="1 0 0 1"/>
       </material>
     </visual>
@@ -232,7 +232,7 @@
       <geometry>
         <box size="0.01 0.01 0.01"/>
       </geometry>
-      <material name="">
+      <material name="marker_red">
         <color rgba="1 0 0 1"/>
       </material>
     </visual>
@@ -253,7 +253,7 @@
       <geometry>
         <box size="0.01 0.01 0.01"/>
       </geometry>
-      <material name="">
+      <material name="marker_red">
         <color rgba="1 0 0 1"/>
       </material>
     </visual>
@@ -274,7 +274,7 @@
       <geometry>
         <box size="0.01 0.01 0.01"/>
       </geometry>
-      <material name="">
+      <material name="marker_red">
         <color rgba="1 0 0 1"/>
       </material>
     </visual>
@@ -469,7 +469,7 @@
       <geometry>
         <box size="0.01 0.01 0.01"/>
       </geometry>
-      <material name="">
+      <material name="marker_red">
         <color rgba="1 0 0 1"/>
       </material>
     </visual>
@@ -490,7 +490,7 @@
       <geometry>
         <box size="0.01 0.01 0.01"/>
       </geometry>
-      <material name="">
+      <material name="marker_red">
         <color rgba="1 0 0 1"/>
       </material>
     </visual>
@@ -511,7 +511,7 @@
       <geometry>
         <box size="0.01 0.01 0.01"/>
       </geometry>
-      <material name="">
+      <material name="marker_red">
         <color rgba="1 0 0 1"/>
       </material>
     </visual>
@@ -684,7 +684,7 @@
     <inertial>
       <origin xyz="-0.00078608 0.0024226200000000003 -0.0594" rpy="0.0 0.0 0.0"/>
       <mass value="0.487684695"/>
-      <inertia ixx="0.00113964" ixy="6.335e-05" ixz="1.684e-05" iyy="0.00052779" iyz="-4.855e-05" izz="0.00123483"/>
+      <inertia ixx="0.001234515" ixy="-1.697e-05" ixz="5.045e-05" iyy="0.001139565" iyz="5.975e-05" izz="0.0005274"/>
     </inertial>
     <visual>
       <geometry>
@@ -767,7 +767,7 @@
       <geometry>
         <box size="0.01 0.01 0.01"/>
       </geometry>
-      <material name="">
+      <material name="marker_red">
         <color rgba="1 0 0 1"/>
       </material>
     </visual>
@@ -790,7 +790,7 @@
       <geometry>
         <box size="0.01 0.01 0.01"/>
       </geometry>
-      <material name="">
+      <material name="marker_red">
         <color rgba="1 0 0 1"/>
       </material>
     </visual>
@@ -854,7 +854,7 @@
     <inertial>
       <origin xyz="-0.00078608 -0.0024226200000000003 -0.0594" rpy="0.0 0.0 0.0"/>
       <mass value="0.487684695"/>
-      <inertia ixx="0.00113964" ixy="-6.335e-05" ixz="1.684e-05" iyy="0.00052779" iyz="4.855e-05" izz="0.00123483"/>
+      <inertia ixx="0.001234515" ixy="1.697e-05" ixz="5.045e-05" iyy="0.001139565" iyz="-5.975e-05" izz="0.0005274"/>
     </inertial>
     <visual>
       <geometry>
@@ -937,7 +937,7 @@
       <geometry>
         <box size="0.01 0.01 0.01"/>
       </geometry>
-      <material name="">
+      <material name="marker_red">
         <color rgba="1 0 0 1"/>
       </material>
     </visual>
@@ -960,7 +960,7 @@
       <geometry>
         <box size="0.01 0.01 0.01"/>
       </geometry>
-      <material name="">
+      <material name="marker_red">
         <color rgba="1 0 0 1"/>
       </material>
     </visual>
