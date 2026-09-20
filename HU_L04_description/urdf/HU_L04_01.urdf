@@ -51,9 +51,9 @@
   <!-- left leg -->
   <link name="left_hip_pitch_link">
     <inertial>
-      <origin xyz="0.00245202 0.003863235 -0.083076805" rpy="0.0 0.0 0.0"/>
+      <origin xyz="0.002451995 0.00386321 -0.083076745" rpy="0.0 0.0 0.0"/>
       <mass value="2.563772465"/>
-      <inertia ixx="0.00695592" ixy="1.6695000000000002e-05" ixz="0.000118235" iyy="0.006111025" iyz="-0.0008046049999999999" izz="0.00334657"/>
+      <inertia ixx="0.006955935" ixy="1.6695000000000002e-05" ixz="0.000118235" iyy="0.00612268" iyz="-0.0008046049999999999" izz="0.003346565"/>
     </inertial>
     <visual>
       <geometry>
@@ -99,9 +99,9 @@
   </joint>
   <link name="left_hip_yaw_link">
     <inertial>
-      <origin xyz="-0.000337765 -0.00063904 -0.06737818500000001" rpy="0.0 0.0 0.0"/>
-      <mass value="2.8471496800000002"/>
-      <inertia ixx="0.014760785" ixy="-1.263e-05" ixz="-0.000411" iyy="0.014635229999999999" iyz="-0.00027203" izz="0.00562815"/>
+      <origin xyz="-0.000337765 -0.00063904 -0.06737834" rpy="0.0 0.0 0.0"/>
+      <mass value="2.847143765"/>
+      <inertia ixx="0.014760955" ixy="-1.263e-05" ixz="-0.000411" iyy="0.01463524" iyz="-0.00027203" izz="0.005628154999999999"/>
     </inertial>
     <visual>
       <geometry>
@@ -123,9 +123,9 @@
   </joint>
   <link name="left_knee_link">
     <inertial>
-      <origin xyz="0.01587861 -0.000749395 -0.109227005" rpy="0.0 0.0 0.0"/>
-      <mass value="5.062820609999999"/>
-      <inertia ixx="0.06210234" ixy="-1.732e-05" ixz="0.003455995" iyy="0.064925465" iyz="0.00029199499999999997" izz="0.00639306"/>
+      <origin xyz="0.01587847 -0.000749395 -0.10922557999999999" rpy="0.0 0.0 0.0"/>
+      <mass value="5.06279911"/>
+      <inertia ixx="0.06210217" ixy="-1.732e-05" ixz="0.00345599" iyy="0.06492545999999999" iyz="0.00029199499999999997" izz="0.006393065"/>
     </inertial>
     <visual>
       <geometry>
@@ -149,7 +149,7 @@
     <inertial>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
       <mass value="0.03944929"/>
-      <inertia ixx="3.46e-06" ixy="0.0" ixz="0.0" iyy="2.16e-06" iyz="0.0" izz="3.69e-06"/>
+      <inertia ixx="3.46e-06" ixy="0.0" ixz="0.0" iyy="2.1580000000000003e-06" iyz="0.0" izz="3.69105e-06"/>
     </inertial>
     <visual>
       <geometry>
@@ -166,9 +166,9 @@
   </joint>
   <link name="left_ankle_roll_link">
     <inertial>
-      <origin xyz="0.00952498 0.002470515 -0.037849975" rpy="0.0 0.0 0.0"/>
-      <mass value="1.205462175"/>
-      <inertia ixx="0.001307735" ixy="-9.4965e-05" ixz="0.000553425" iyy="0.005067835" iyz="2.8760000000000002e-05" izz="0.005251935"/>
+      <origin xyz="0.010456634999999999 0.0014684350000000001 -0.039485685" rpy="0.0 0.0 0.0"/>
+      <mass value="1.0092621199999998"/>
+      <inertia ixx="0.00101862" ixy="-8.186e-05" ixz="0.000516705" iyy="0.004443495" iyz="3.0379999999999997e-05" izz="0.00443452"/>
     </inertial>
     <visual>
       <geometry>
@@ -176,37 +176,55 @@
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0.018 0.0 -0.056" rpy="0.0 0.0 0.0"/>
+      <origin xyz="0.018 0.0 -0.0575" rpy="0.0 0.0 0.0"/>
       <geometry>
         <box size="0.18 0.065 0.022"/>
       </geometry>
     </collision>
     <collision>
-      <origin xyz="0.11773 -0.0355 -0.068" rpy="0.0 0.0 0.0"/>
-      <geometry>
-        <sphere radius="0.005"/>
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="0.11773 0.04208 -0.068" rpy="0.0 0.0 0.0"/>
-      <geometry>
-        <sphere radius="0.005"/>
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="-0.07665 0.034 -0.068" rpy="0.0 0.0 0.0"/>
-      <geometry>
-        <sphere radius="0.005"/>
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="-0.07665 -0.034 -0.068" rpy="0.0 0.0 0.0"/>
-      <geometry>
-        <sphere radius="0.005"/>
-      </geometry>
-    </collision>
-    <collision>
       <origin xyz="0.145 0.0 -0.05977" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.11773 -0.033 -0.068" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.11773 0.0395 -0.068" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.06872 -0.0401 -0.06846" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.06872 0.05087 -0.06846" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.05017 -0.03749 -0.06846" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.05017 0.03903 -0.06846" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.09271 0.0 -0.06846" rpy="0.0 0.0 0.0"/>
       <geometry>
         <sphere radius="0.005"/>
       </geometry>
@@ -225,7 +243,7 @@
     <inertial>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
       <mass value="0.001"/>
-      <inertia ixx="1e-07" ixy="0.0" ixz="0.0" iyy="1e-07" iyz="0.0" izz="1e-07"/>
+      <inertia ixx="1e-08" ixy="0.0" ixz="0.0" iyy="1e-08" iyz="0.0" izz="1e-08"/>
     </inertial>
     <visual>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
@@ -246,7 +264,7 @@
     <inertial>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
       <mass value="0.001"/>
-      <inertia ixx="1e-07" ixy="0.0" ixz="0.0" iyy="1e-07" iyz="0.0" izz="1e-07"/>
+      <inertia ixx="1e-08" ixy="0.0" ixz="0.0" iyy="1e-08" iyz="0.0" izz="1e-08"/>
     </inertial>
     <visual>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
@@ -267,7 +285,7 @@
     <inertial>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
       <mass value="0.001"/>
-      <inertia ixx="1e-07" ixy="0.0" ixz="0.0" iyy="1e-07" iyz="0.0" izz="1e-07"/>
+      <inertia ixx="1e-08" ixy="0.0" ixz="0.0" iyy="1e-08" iyz="0.0" izz="1e-08"/>
     </inertial>
     <visual>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
@@ -288,9 +306,9 @@
   <!-- right leg -->
   <link name="right_hip_pitch_link">
     <inertial>
-      <origin xyz="0.00245202 -0.003863235 -0.083076805" rpy="0.0 0.0 0.0"/>
+      <origin xyz="0.002451995 -0.00386321 -0.083076745" rpy="0.0 0.0 0.0"/>
       <mass value="2.563772465"/>
-      <inertia ixx="0.00695592" ixy="-1.6695000000000002e-05" ixz="0.000118235" iyy="0.006111025" iyz="0.0008046049999999999" izz="0.00334657"/>
+      <inertia ixx="0.006955935" ixy="-1.6695000000000002e-05" ixz="0.000118235" iyy="0.00612268" iyz="0.0008046049999999999" izz="0.003346565"/>
     </inertial>
     <visual>
       <geometry>
@@ -336,9 +354,9 @@
   </joint>
   <link name="right_hip_yaw_link">
     <inertial>
-      <origin xyz="-0.000337765 0.00063904 -0.06737818500000001" rpy="0.0 0.0 0.0"/>
-      <mass value="2.8471496800000002"/>
-      <inertia ixx="0.014760785" ixy="1.263e-05" ixz="-0.000411" iyy="0.014635229999999999" iyz="0.00027203" izz="0.00562815"/>
+      <origin xyz="-0.000337765 0.00063904 -0.06737834" rpy="0.0 0.0 0.0"/>
+      <mass value="2.847143765"/>
+      <inertia ixx="0.014760955" ixy="1.263e-05" ixz="-0.000411" iyy="0.01463524" iyz="0.00027203" izz="0.005628154999999999"/>
     </inertial>
     <visual>
       <geometry>
@@ -360,9 +378,9 @@
   </joint>
   <link name="right_knee_link">
     <inertial>
-      <origin xyz="0.01587861 0.000749395 -0.109227005" rpy="0.0 0.0 0.0"/>
-      <mass value="5.062820609999999"/>
-      <inertia ixx="0.06210234" ixy="1.732e-05" ixz="0.003455995" iyy="0.064925465" iyz="-0.00029199499999999997" izz="0.00639306"/>
+      <origin xyz="0.01587847 0.000749395 -0.10922557999999999" rpy="0.0 0.0 0.0"/>
+      <mass value="5.06279911"/>
+      <inertia ixx="0.06210217" ixy="1.732e-05" ixz="0.00345599" iyy="0.06492545999999999" iyz="-0.00029199499999999997" izz="0.006393065"/>
     </inertial>
     <visual>
       <geometry>
@@ -386,7 +404,7 @@
     <inertial>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
       <mass value="0.03944929"/>
-      <inertia ixx="3.46e-06" ixy="0.0" ixz="0.0" iyy="2.16e-06" iyz="0.0" izz="3.69e-06"/>
+      <inertia ixx="3.46e-06" ixy="0.0" ixz="0.0" iyy="2.1580000000000003e-06" iyz="0.0" izz="3.69105e-06"/>
     </inertial>
     <visual>
       <geometry>
@@ -403,9 +421,9 @@
   </joint>
   <link name="right_ankle_roll_link">
     <inertial>
-      <origin xyz="0.00952498 -0.002470515 -0.037849975" rpy="0.0 0.0 0.0"/>
-      <mass value="1.205462175"/>
-      <inertia ixx="0.001307735" ixy="9.4965e-05" ixz="0.000553425" iyy="0.005067835" iyz="-2.8760000000000002e-05" izz="0.005251935"/>
+      <origin xyz="0.010456634999999999 -0.0014684350000000001 -0.039485685" rpy="0.0 0.0 0.0"/>
+      <mass value="1.0092621199999998"/>
+      <inertia ixx="0.00101862" ixy="8.186e-05" ixz="0.000516705" iyy="0.004443495" iyz="-3.0379999999999997e-05" izz="0.00443452"/>
     </inertial>
     <visual>
       <geometry>
@@ -413,37 +431,55 @@
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0.018 0.0 -0.056" rpy="0.0 0.0 0.0"/>
+      <origin xyz="0.018 0.0 -0.0575" rpy="0.0 0.0 0.0"/>
       <geometry>
         <box size="0.18 0.065 0.022"/>
       </geometry>
     </collision>
     <collision>
-      <origin xyz="0.11773 0.0355 -0.068" rpy="0.0 0.0 0.0"/>
-      <geometry>
-        <sphere radius="0.005"/>
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="0.11773 -0.04208 -0.068" rpy="0.0 0.0 0.0"/>
-      <geometry>
-        <sphere radius="0.005"/>
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="-0.07665 -0.034 -0.068" rpy="0.0 0.0 0.0"/>
-      <geometry>
-        <sphere radius="0.005"/>
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="-0.07665 0.034 -0.068" rpy="0.0 0.0 0.0"/>
-      <geometry>
-        <sphere radius="0.005"/>
-      </geometry>
-    </collision>
-    <collision>
       <origin xyz="0.145 0.0 -0.05977" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.11773 0.033 -0.068" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.11773 -0.0395 -0.068" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.06872 0.0401 -0.06846" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.06872 -0.05087 -0.06846" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.05017 0.03749 -0.06846" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.05017 -0.03903 -0.06846" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.09271 0.0 -0.06846" rpy="0.0 0.0 0.0"/>
       <geometry>
         <sphere radius="0.005"/>
       </geometry>
@@ -462,7 +498,7 @@
     <inertial>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
       <mass value="0.001"/>
-      <inertia ixx="1e-07" ixy="0.0" ixz="0.0" iyy="1e-07" iyz="0.0" izz="1e-07"/>
+      <inertia ixx="1e-08" ixy="0.0" ixz="0.0" iyy="1e-08" iyz="0.0" izz="1e-08"/>
     </inertial>
     <visual>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
@@ -483,7 +519,7 @@
     <inertial>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
       <mass value="0.001"/>
-      <inertia ixx="1e-07" ixy="0.0" ixz="0.0" iyy="1e-07" iyz="0.0" izz="1e-07"/>
+      <inertia ixx="1e-08" ixy="0.0" ixz="0.0" iyy="1e-08" iyz="0.0" izz="1e-08"/>
     </inertial>
     <visual>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
@@ -504,7 +540,7 @@
     <inertial>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
       <mass value="0.001"/>
-      <inertia ixx="1e-07" ixy="0.0" ixz="0.0" iyy="1e-07" iyz="0.0" izz="1e-07"/>
+      <inertia ixx="1e-08" ixy="0.0" ixz="0.0" iyy="1e-08" iyz="0.0" izz="1e-08"/>
     </inertial>
     <visual>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
