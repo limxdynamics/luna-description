@@ -62,7 +62,7 @@
     <mesh name="right_shoulder_pitch_link" file="right_shoulder_pitch_link.STL"/>
     <mesh name="right_shoulder_roll_link" file="right_shoulder_roll_link.STL"/>
     <mesh name="right_shoulder_yaw_link" file="right_shoulder_yaw_link.STL"/>
-    <mesh name="right_elbow_link" content_type="model/stl" file="right_elbow_link.STL"/>
+    <mesh name="right_elbow_link" file="right_elbow_link.STL"/>
     <mesh name="right_wrist_yaw_link" file="right_wrist_yaw_link.STL"/>
     <texture type="skybox" builtin="gradient" width="512" height="512" rgb1="1 1 1" rgb2="1 1 1"/>
     <texture name="plane" type="2d" builtin="flat" rgb1="1 1 1" rgb2="1 1 1" width="512" height="512" mark="cross" markrgb="0 0 0"/>
