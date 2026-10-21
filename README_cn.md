@@ -33,10 +33,12 @@ python -m mujoco.viewer --mjcf=HU_L04_description/xml/HU_L04_01.xml
 
 ## 可用型号
 
-| 型号 | 描述 | URDF | MuJoCo MJCF | USD |
-| ---- | ---- | ---- | ----------- | --- |
-| **HU_L04** | Luna 人形，27 个主动关节 | `urdf/HU_L04_01.urdf` | `xml/HU_L04_01.xml` | `usd/HU_L04_01.usd` |
-| **HU_L04（并联）** | 同一机器人，脚踝和腰部的并联连杆按真实闭环建模 | — | — | `usd_parallel/HU_L04_01.usd` |
+| | 型号 | 描述 | URDF | MuJoCo MJCF | USD |
+|:-:| ---- | ---- | ---- | ----------- | --- |
+| <img src="docs/model_hu_l04.png" width="140"> | **HU_L04** | Luna 人形，27 个主动关节 | `urdf/HU_L04_01.urdf` | `xml/HU_L04_01.xml` | `usd/HU_L04_01.usd` |
+| <img src="docs/model_hu_l04_parallel.png" width="140"> | **HU_L04（并联）** | 同一机器人，脚踝和腰部的并联连杆按真实闭环建模 | — | — | `usd_parallel/HU_L04_01.usd` |
+
+<sub>第二行配图：由 MJCF 渲染的脚踝并联连杆（蓝色），小腿外壳做了半透明处理。</sub>
 
 > **注意：** Luna 的脚踝和腰部通过并联连杆驱动。URDF 无法表达闭环运动链，因此 URDF 及与之对应的 `usd/` 采用串联近似，把脚踝和腰部关节视为直接驱动。MJCF 用 `equality` 约束表达并联连杆；`usd_parallel/` 则把连杆建成真实闭环，供 Isaac Lab 使用。
 
