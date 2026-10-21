@@ -33,12 +33,21 @@ python -m mujoco.viewer --mjcf=HU_L04_description/xml/HU_L04_01.xml
 
 ## Available models
 
-| | Model | Description | URDF | MuJoCo MJCF | USD |
-|:-:| ----- | ----------- | ---- | ----------- | --- |
-| <img src="docs/model_hu_l04.png" width="140"> | **HU_L04** | Luna humanoid, 27 actuated joints | `urdf/HU_L04_01.urdf` | `xml/HU_L04_01.xml` | `usd/HU_L04_01.usd` |
-| <img src="docs/model_hu_l04_parallel.png" width="140"> | **HU_L04 (parallel)** | Same robot with the ankle and waist parallel linkages modeled as closed loops | — | — | `usd_parallel/HU_L04_01.usd` |
+<table>
+  <tr>
+    <td align="center" width="50%"><img src="docs/model_hu_l04.png" width="400" alt="HU_L04 full body"></td>
+    <td align="center" width="50%"><img src="docs/model_hu_l04_parallel.png" width="400" alt="HU_L04 ankle parallel linkages"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>HU_L04</b><br><sub>Luna humanoid, 27 actuated joints</sub></td>
+    <td align="center"><b>HU_L04 (parallel)</b><br><sub>Ankle parallel linkages (blue), rendered from the MJCF with a translucent shank shell</sub></td>
+  </tr>
+</table>
 
-<sub>Second row: ankle parallel linkages (blue) rendered from the MJCF with the shank shell made translucent.</sub>
+| Model | Description | URDF | MuJoCo MJCF | USD |
+| ----- | ----------- | ---- | ----------- | --- |
+| **HU_L04** | Luna humanoid, 27 actuated joints | `urdf/HU_L04_01.urdf` | `xml/HU_L04_01.xml` | `usd/HU_L04_01.usd` |
+| **HU_L04 (parallel)** | Same robot with the ankle and waist parallel linkages modeled as closed loops | — | — | `usd_parallel/HU_L04_01.usd` |
 
 > **Note:** Luna's ankles and waist are driven through parallel linkages. URDF cannot represent closed kinematic loops, so the URDF and the matching `usd/` model use a serial approximation in which the ankle and waist joints are driven directly. The MJCF models the linkages with `equality` constraints, and `usd_parallel/` models them as true closed loops for Isaac Lab.
 
