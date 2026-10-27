@@ -11,11 +11,13 @@
 
 </div>
 
+# luna-description
+
 LimX Dynamics Luna 人形机器人（HU_L04）的 URDF、MuJoCo MJCF 和 USD 模型文件。提供仿真就绪的机器人描述，支持 ROS、MuJoCo 和 NVIDIA Isaac Sim / Isaac Lab。
 
 ## 亮点
 
-- **全身人形，27 个主动关节。** 包含双腿、3 自由度腰部、2 自由度头部和双臂，SRDF 中提供转子惯量、减速比等关节参数。
+- **全身人形，27 个主动关节。** 包含双腿、3 自由度腰部、2 自由度头部、5 自由度双臂，SRDF 中按关节给出 `rotor_mass` 与 `gear_ratio`。
 - **并联连杆如实建模。** 脚踝和腰部由并联连杆驱动；MJCF 用 `equality` 约束表达，`usd_parallel/` 建成真实闭环。
 - **一台机器人，覆盖主流仿真器。** ROS 用 URDF、MuJoCo 用 MJCF、Isaac Sim / Isaac Lab 用 USD，几何来源一致。
 - **直接接入学习训练流程。** MJCF 自带执行器、关节位置/速度传感器和 IMU，另附用于动作重定向的纯运动学版本。
@@ -39,8 +41,8 @@ python -m mujoco.viewer --mjcf=HU_L04_description/xml/HU_L04_01.xml
     <td align="center" width="50%"><img src="docs/model_hu_l04_parallel.png" width="400" alt="HU_L04 脚踝并联连杆"></td>
   </tr>
   <tr>
-    <td align="center"><b>HU_L04</b><br><sub>Luna 人形，27 个主动关节</sub></td>
-    <td align="center"><b>HU_L04（并联）</b><br><sub>脚踝并联连杆（蓝色），由 MJCF 渲染，小腿外壳做了半透明处理</sub></td>
+    <td align="center"><b>HU_L04</b></td>
+    <td align="center"><b>HU_L04（并联）</b><br><sub>脚踝连杆标为蓝色，由 MJCF 渲染，小腿外壳做了半透明处理</sub></td>
   </tr>
 </table>
 
@@ -59,13 +61,15 @@ python -m mujoco.viewer --mjcf=HU_L04_description/xml/HU_L04_01.xml
 | 腰部 | 3 | `waist_yaw`、`waist_roll`、`waist_pitch` |
 | 头部 | 2 | `head_yaw`、`head_pitch` |
 | 手臂 | 5 × 2 | `shoulder_pitch`、`shoulder_roll`、`shoulder_yaw`、`elbow`、`wrist_yaw` |
-| **合计** | **27** | 腿部和手臂关节带 `left_` / `right_` 前缀，例如 `left_knee_joint`。 |
+| **合计** | **27** | |
+
+腿部和手臂关节带 `left_` / `right_` 前缀，例如 `left_knee_joint`。
 
 ### MJCF 内容
 
 | 文件 | 执行器 | 传感器 | 并联连杆 |
 | ---- | :----: | ------ | -------- |
-| `HU_L04_01.xml` | 27 | 全部 27 个关节的位置和速度，机身 IMU（姿态、陀螺仪、加速度计） | 6 个 `equality` 约束（左脚踝、右脚踝、腰部） |
+| `HU_L04_01.xml` | 27 | 全部 27 个关节的位置和速度，机身 IMU（姿态、陀螺仪、加速度计） | `<equality>` 中的 6 个 `<connect>` 约束：每个脚踝 2 个，腰部 2 个 |
 | `HU_L04_01_vis.xml` | — | — | —（纯运动学，用于动作重定向） |
 
 ## 目录结构
@@ -74,12 +78,12 @@ python -m mujoco.viewer --mjcf=HU_L04_description/xml/HU_L04_01.xml
 
 | 目录 | 内容 |
 |------|------|
-| `urdf/` | URDF + SRDF（关节参数：转子惯量、减速比） |
-| `xml/` | MuJoCo MJCF XML：`HU_L04_01.xml` 为完整动力学模型（含并联连杆约束、执行器、传感器），`HU_L04_01_vis.xml` 为纯运动学模型（用于动作重定向） |
+| `urdf/` | URDF + SRDF（按关节给出 `rotor_mass` 与 `gear_ratio`） |
+| `xml/` | MuJoCo MJCF：`HU_L04_01.xml`（完整动力学）和 `HU_L04_01_vis.xml`（纯运动学） |
 | `usd/` | NVIDIA USD 文件，与 URDF 一致的串联近似，+ `configuration/` 子目录 |
 | `usd_parallel/` | NVIDIA USD 文件，并联连杆按闭环建模，+ `configuration/` 子目录 |
 | `meshes/` | STL 网格文件 |
-| `world/` | 仿真世界文件 |
+| `world/` | Gazebo 世界文件（`empty_world.world`） |
 | `CMakeLists.txt` | ROS 包构建文件 |
 | `package.xml` | ROS 包清单 |
 
@@ -104,17 +108,17 @@ URDF 以 `package://HU_L04_description/meshes/...` 引用网格。在 ROS 之外
 python -m mujoco.viewer --mjcf=HU_L04_description/xml/HU_L04_01.xml
 ```
 
-`HU_L04_01_vis.xml` 是纯运动学版本（不含并联连杆、执行器和传感器），供动作重定向使用。
+做动作重定向时改用 `HU_L04_01_vis.xml`。
 
 ### Isaac Sim / Isaac Lab
 
 通过 Isaac Sim 的参考装配功能导入 `HU_L04_description/usd/HU_L04_01.usd`。若需要闭环并联连杆，改用 `HU_L04_description/usd_parallel/HU_L04_01.usd`。
 
+两个 `.usd` 都只是引用壳，实际资产在同级 `configuration/` 目录里，请整目录拷贝，只拷 `.usd` 文件会加载失败。
+
 ## 相关仓库
 
-| 仓库 | 描述 |
-| ---- | ---- |
-| [luna-beyondmimic](https://github.com/limxdynamics/luna-beyondmimic) | Luna 的 BeyondMimic 动作跟踪训练（Isaac Lab） |
+[`luna-beyondmimic`](https://github.com/limxdynamics/luna-beyondmimic) —— Luna 的 BeyondMimic 动作跟踪训练（Isaac Lab）。
 
 ## 许可证
 

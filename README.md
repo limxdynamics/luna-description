@@ -11,11 +11,13 @@
 
 </div>
 
+# luna-description
+
 URDF, MuJoCo MJCF & USD models for the LimX Dynamics Luna humanoid robot (HU_L04). Provides simulation-ready robot descriptions for ROS, MuJoCo, and NVIDIA Isaac Sim / Isaac Lab.
 
 ## Highlights
 
-- **Full-body humanoid, 27 actuated joints.** Legs, 3-DoF waist, 2-DoF head and arms, with joint specs (rotor inertia, gear ratio) in the SRDF.
+- **Full-body humanoid, 27 actuated joints.** Legs, a 3-DoF waist, a 2-DoF head and 5-DoF arms, with `rotor_mass` and `gear_ratio` per joint in the SRDF.
 - **Parallel linkages modeled faithfully.** The ankles and waist are driven through parallel linkages; the MJCF expresses them with `equality` constraints and `usd_parallel/` as true closed loops.
 - **One robot, every simulator.** URDF for ROS, MJCF for MuJoCo, USD for Isaac Sim / Isaac Lab, all from the same geometry.
 - **Ready for learning pipelines.** The MJCF ships actuators plus joint position/velocity and IMU sensors, and a kinematics-only variant for motion retargeting.
@@ -39,8 +41,8 @@ python -m mujoco.viewer --mjcf=HU_L04_description/xml/HU_L04_01.xml
     <td align="center" width="50%"><img src="docs/model_hu_l04_parallel.png" width="400" alt="HU_L04 ankle parallel linkages"></td>
   </tr>
   <tr>
-    <td align="center"><b>HU_L04</b><br><sub>Luna humanoid, 27 actuated joints</sub></td>
-    <td align="center"><b>HU_L04 (parallel)</b><br><sub>Ankle parallel linkages (blue), rendered from the MJCF with a translucent shank shell</sub></td>
+    <td align="center"><b>HU_L04</b></td>
+    <td align="center"><b>HU_L04 (parallel)</b><br><sub>Ankle linkages in blue, rendered from the MJCF with a translucent shank shell</sub></td>
   </tr>
 </table>
 
@@ -59,13 +61,15 @@ python -m mujoco.viewer --mjcf=HU_L04_description/xml/HU_L04_01.xml
 | Waist | 3 | `waist_yaw`, `waist_roll`, `waist_pitch` |
 | Head  | 2 | `head_yaw`, `head_pitch` |
 | Arms  | 5 × 2 | `shoulder_pitch`, `shoulder_roll`, `shoulder_yaw`, `elbow`, `wrist_yaw` |
-| **Total** | **27** | Leg and arm joints are prefixed `left_` / `right_`, e.g. `left_knee_joint`. |
+| **Total** | **27** | |
+
+Leg and arm joints are prefixed `left_` / `right_`, e.g. `left_knee_joint`.
 
 ### MJCF contents
 
 | File | Actuators | Sensors | Parallel linkages |
 | ---- | :-------: | ------- | ----------------- |
-| `HU_L04_01.xml` | 27 | Joint position and velocity for all 27 joints, base IMU (orientation, gyro, accelerometer) | 6 `equality` constraints (left ankle, right ankle, waist) |
+| `HU_L04_01.xml` | 27 | Joint position and velocity for all 27 joints, base IMU (orientation, gyro, accelerometer) | 6 `<connect>` constraints in `<equality>`: two per ankle, two for the waist |
 | `HU_L04_01_vis.xml` | — | — | — (kinematics only, for motion retargeting) |
 
 ## Directory structure
@@ -74,12 +78,12 @@ python -m mujoco.viewer --mjcf=HU_L04_description/xml/HU_L04_01.xml
 
 | Directory        | Contents                                                                                      |
 | ---------------- | --------------------------------------------------------------------------------------------- |
-| `urdf/`          | URDF + SRDF (joint specs: rotor inertia, gear ratio)                                          |
-| `xml/`           | MuJoCo MJCF XML: `HU_L04_01.xml` (full dynamics: parallel-linkage constraints, actuators, sensors) and `HU_L04_01_vis.xml` (kinematics only, used for motion retargeting) |
+| `urdf/`          | URDF + SRDF (per-joint `rotor_mass` and `gear_ratio`)                                          |
+| `xml/`           | MuJoCo MJCF: `HU_L04_01.xml` (full dynamics) and `HU_L04_01_vis.xml` (kinematics only)          |
 | `usd/`           | NVIDIA USD files, serial approximation consistent with the URDF, + `configuration/` subdirectory |
 | `usd_parallel/`  | NVIDIA USD files with the parallel linkages modeled as closed loops, + `configuration/` subdirectory |
 | `meshes/`        | STL mesh files                                                                                |
-| `world/`         | Simulation world files                                                                        |
+| `world/`         | Gazebo world file (`empty_world.world`)                                                       |
 | `CMakeLists.txt` | ROS package build file                                                                        |
 | `package.xml`    | ROS package manifest                                                                          |
 
@@ -104,17 +108,17 @@ The URDF references meshes as `package://HU_L04_description/meshes/...`. Outside
 python -m mujoco.viewer --mjcf=HU_L04_description/xml/HU_L04_01.xml
 ```
 
-`HU_L04_01_vis.xml` is a kinematics-only variant (no parallel linkages, actuators or sensors) intended for motion retargeting.
+For motion retargeting, load `HU_L04_01_vis.xml` instead.
 
 ### Isaac Sim / Isaac Lab
 
 Import the USD file from `HU_L04_description/usd/HU_L04_01.usd` via Isaac Sim's reference assembly. Use `HU_L04_description/usd_parallel/HU_L04_01.usd` instead if you need the closed-loop parallel linkages.
 
+Both `.usd` files are thin wrappers that reference the assets in the `configuration/` folder next to them, so copy the whole directory rather than the `.usd` file alone.
+
 ## Related repositories
 
-| Repository                                                         | Description                                          |
-| ------------------------------------------------------------------ | ---------------------------------------------------- |
-| [luna-beyondmimic](https://github.com/limxdynamics/luna-beyondmimic) | BeyondMimic motion tracking training for Luna (Isaac Lab) |
+[`luna-beyondmimic`](https://github.com/limxdynamics/luna-beyondmimic) — BeyondMimic motion tracking training for Luna (Isaac Lab).
 
 ## License
 
