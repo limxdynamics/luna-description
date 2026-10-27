@@ -19,6 +19,26 @@ cmake_minimum_required(VERSION 3.10)
 # Declare the project
 project(HU_L04_description)
 
+# usd/ and usd_parallel/ hold the Isaac Sim / Isaac Lab assets. They are about
+# 200 MB together, because usd/configuration/HU_L04_01_base.usd alone is 97 MB
+# and its usd_parallel counterpart is 103 MB. ROS, Gazebo and MuJoCo never read
+# them, and copying them on every build roughly doubles the install space, so
+# they are opt-in. Enable them with one of:
+#
+#   catkin_make -DINSTALL_USD=ON
+#   catkin build --cmake-args -DINSTALL_USD=ON
+#   colcon build --cmake-args -DINSTALL_USD=ON
+#
+option(INSTALL_USD "Install usd/ and usd_parallel/ (~200 MB) into the package share directory" OFF)
+
+set(HU_L04_DESCRIPTION_INSTALL_DIRS meshes urdf xml world)
+if(INSTALL_USD)
+  list(APPEND HU_L04_DESCRIPTION_INSTALL_DIRS usd usd_parallel)
+  message(STATUS "HU_L04_description: installing usd/ and usd_parallel/ (~200 MB)")
+else()
+  message(STATUS "HU_L04_description: skipping usd/ and usd_parallel/, configure with -DINSTALL_USD=ON to install them")
+endif()
+
 if(DEFINED ENV{ROS_VERSION})
   if($ENV{ROS_VERSION} EQUAL 1)
     # In ROS1 compilation environment
@@ -28,18 +48,14 @@ if(DEFINED ENV{ROS_VERSION})
 
     catkin_package(CATKIN_DEPENDS)
 
-    # Install everything the model needs to the package share directory.
-    # usd/ and usd_parallel/ are large (~200 MB together) but are installed so
-    # that Isaac Sim / Isaac Lab setups can point at the package share
-    # directory instead of the source tree.
-    install(DIRECTORY meshes urdf usd usd_parallel xml world DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+    install(DIRECTORY ${HU_L04_DESCRIPTION_INSTALL_DIRS} DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
   elseif($ENV{ROS_VERSION} EQUAL 2)
     # In ROS2 compilation environment
     message("Currently in ROS2 compilation environment")
 
     find_package(ament_cmake REQUIRED)
 
-    install(DIRECTORY meshes urdf usd usd_parallel xml world DESTINATION share/${PROJECT_NAME})
+    install(DIRECTORY ${HU_L04_DESCRIPTION_INSTALL_DIRS} DESTINATION share/${PROJECT_NAME})
 
     ament_package()
   else()
@@ -49,7 +65,7 @@ else()
   if(DEFINED ENV{AMENT_PREFIX_PATH})
     message("Currently is not in ROS compilation environment")
     find_package(ament_cmake REQUIRED)
-    install(DIRECTORY meshes urdf usd usd_parallel xml world DESTINATION etc/${PROJECT_NAME})
+    install(DIRECTORY ${HU_L04_DESCRIPTION_INSTALL_DIRS} DESTINATION etc/${PROJECT_NAME})
     ament_package()
   endif()
 endif()
