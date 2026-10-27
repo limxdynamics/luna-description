@@ -28,15 +28,18 @@ if(DEFINED ENV{ROS_VERSION})
 
     catkin_package(CATKIN_DEPENDS)
 
-    # Install 'meshes', 'urdf', 'xml' and 'world' to the package share directory
-    install(DIRECTORY meshes urdf xml world DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+    # Install everything the model needs to the package share directory.
+    # usd/ and usd_parallel/ are large (~200 MB together) but are installed so
+    # that Isaac Sim / Isaac Lab setups can point at the package share
+    # directory instead of the source tree.
+    install(DIRECTORY meshes urdf usd usd_parallel xml world DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
   elseif($ENV{ROS_VERSION} EQUAL 2)
     # In ROS2 compilation environment
     message("Currently in ROS2 compilation environment")
 
     find_package(ament_cmake REQUIRED)
 
-    install(DIRECTORY meshes urdf xml world DESTINATION share/${PROJECT_NAME})
+    install(DIRECTORY meshes urdf usd usd_parallel xml world DESTINATION share/${PROJECT_NAME})
 
     ament_package()
   else()
@@ -46,7 +49,7 @@ else()
   if(DEFINED ENV{AMENT_PREFIX_PATH})
     message("Currently is not in ROS compilation environment")
     find_package(ament_cmake REQUIRED)
-    install(DIRECTORY meshes urdf xml world DESTINATION etc/${PROJECT_NAME})
+    install(DIRECTORY meshes urdf usd usd_parallel xml world DESTINATION etc/${PROJECT_NAME})
     ament_package()
   endif()
 endif()
