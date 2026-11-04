@@ -13,6 +13,8 @@
 
 # luna-description
 
+> **Part of the Luna humanoid open-source ecosystem.** Where to start and the other Luna repositories: [Luna quick start](https://github.com/limxdynamics/limxdynamics/blob/main/doc/quickstart.md#luna).
+
 URDF, MuJoCo MJCF & USD models for the LimX Dynamics Luna humanoid robot (HU_L04). Provides simulation-ready robot descriptions for ROS, MuJoCo, and NVIDIA Isaac Sim / Isaac Lab.
 
 ## Highlights

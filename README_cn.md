@@ -13,6 +13,8 @@
 
 # luna-description
 
+> **Luna 人形机器人开源生态的一部分。** 上手路线和其他 Luna 仓库：[Luna 快速上手](https://github.com/limxdynamics/limxdynamics/blob/main/doc/quickstart_cn.md#luna)。
+
 LimX Dynamics Luna 人形机器人（HU_L04）的 URDF、MuJoCo MJCF 和 USD 模型文件。提供仿真就绪的机器人描述，支持 ROS、MuJoCo 和 NVIDIA Isaac Sim / Isaac Lab。
 
 ## 亮点
