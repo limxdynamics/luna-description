@@ -10,6 +10,8 @@
 [![Isaac Lab](https://img.shields.io/badge/Isaac%20Sim%20%7C%20Lab-USD-76B900?logo=nvidia)](#isaac-sim--isaac-lab)
 [![WeChat Community](https://img.shields.io/badge/WeChat-Developer%20Community-07C160?logo=wechat&logoColor=white)](https://github.com/limxdynamics/limxdynamics/blob/main/doc/wechat_qr.png)
 
+<p align="center"><sub>For partnership and procurement inquiries, contact <a href="mailto:opensource@limxdynamics.com">opensource@limxdynamics.com</a></sub></p>
+
 </div>
 
 # luna-description
